@@ -1,6 +1,6 @@
-<<<<<<< HEAD
+
 # pagamento-cartao
-=======
+
 # Pagamento com Cartão - Microsserviço em Java Quarkus
 
 Este projeto é um microsserviço desenvolvido em Java utilizando o framework Quarkus, que realiza o recebimento, validação e armazenamento de pagamentos realizados com cartões de crédito. A aplicação expõe endpoints RESTful para processar pagamentos e consultar transações armazenadas.
@@ -51,4 +51,4 @@ http://localhost:8080/q/metrics
 3. **Validação da Data de Validade**: A data de validade do cartão não pode estar no passado.
 4. **Validação do CVV**: O CVV deve conter 3 ou 4 dígitos.
 5. **Validação do Valor**: O valor do pagamento deve ser positivo.
->>>>>>> 94ab7b3 (first commit)
+
