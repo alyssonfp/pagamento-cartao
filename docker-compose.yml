@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pagamentodb  # Banco de dados será criado automaticamente
+    ports:
+      - "3307:3306"  # Usa a porta padrão, pode ser alterado conforme necessário
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  quarkus-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: quarkus_app
+    ports:
+      - "8080:8080"
+    environment:
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:mysql://db:3306/pagamentodb
+      QUARKUS_DATASOURCE_USERNAME: root
+      QUARKUS_DATASOURCE_PASSWORD: root
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  db_data:
