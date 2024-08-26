@@ -6,9 +6,9 @@ services:
     container_name: mysql_db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: pagamentodb  # Banco de dados será criado automaticamente
+      MYSQL_DATABASE: pagamentodb
     ports:
-      - "3307:3306"  # Usa a porta padrão, pode ser alterado conforme necessário
+      - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
     healthcheck:
