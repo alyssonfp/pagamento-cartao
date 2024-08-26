@@ -1,6 +1,3 @@
-
-# pagamento-cartao
-
 # Pagamento com Cartão - Microsserviço em Java Quarkus
 
 Este projeto é um microsserviço desenvolvido em Java utilizando o framework Quarkus, que realiza o recebimento, validação e armazenamento de pagamentos realizados com cartões de crédito. A aplicação expõe endpoints RESTful para processar pagamentos e consultar transações armazenadas.
