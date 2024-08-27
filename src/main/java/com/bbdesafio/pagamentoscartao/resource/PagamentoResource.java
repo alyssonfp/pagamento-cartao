@@ -25,7 +25,9 @@ public class PagamentoResource {
     public Response receberPagamento(Pagamento pagamento) {
         try {
             pagamentoService.processarPagamento(pagamento);
-            return Response.ok("Pagamento processado com sucesso!").build();
+            return Response.status(Response.Status.CREATED)
+                    .entity("Pagamento processado com sucesso!")
+                    .build();
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity(e.getMessage())

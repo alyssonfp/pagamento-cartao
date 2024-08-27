@@ -3,9 +3,8 @@ FROM quay.io/quarkus/ubi-quarkus-native-image:22.3-java17 AS build
 WORKDIR /work
 
 COPY mvnw ./
-
+RUN sed -i 's/\r$//' mvnw
 COPY .mvn .mvn
-
 COPY pom.xml ./
 
 COPY src ./src
